@@ -1,0 +1,126 @@
+/* General styling */
+:root {
+    --bg-color: #f1f2f3;
+    --calculator-bg: #e0e5ec;
+    --display-bg: #2d3138;
+    --button-bg: #e0e5ec;
+    --operator-bg: #cccccc;
+    --special-bg: #b0b5ba;
+    --text-color: #333;
+    --operator-text-color: #000;
+    --shadow-light: rgba(255, 255, 255, 0.9);
+    --shadow-dark: rgba(0, 0, 0, 0.15);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Calculator container */
+.calculator-container {
+    width: 100%;
+    max-width: 360px;
+    background-color: var(--calculator-bg);
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: 
+        10px 10px 20px var(--shadow-dark),
+        -10px -10px 20px var(--shadow-light);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Display screen */
+.calculator-display {
+    background-color: var(--display-bg);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: right;
+    word-wrap: break-word;
+    word-break: break-all;
+    box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.2),
+                inset -4px -4px 8px rgba(255, 255, 255, 0.6);
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #fff; /* Display text is white for contrast */
+}
+
+.previous-operand {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.5);
+    min-height: 24px;
+}
+
+.current-operand {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+/* Button grid */
+.calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+/* General button styles */
+button {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border: none;
+    background-color: var(--button-bg);
+    color: var(--text-color);
+    border-radius: 12px;
+    cursor: pointer;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 4px 4px 8px var(--shadow-dark),
+                -4px -4px 8px var(--shadow-light);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 6px 6px 12px var(--shadow-dark),
+                -6px -6px 12px var(--shadow-light);
+}
+
+button:active {
+    transform: translateY(1px);
+    box-shadow: 2px 2px 4px var(--shadow-dark),
+                -2px -2px 4px var(--shadow-light);
+}
+
+/* Specific button styles */
+.span-two {
+    grid-column: span 2;
+}
+
+button.operator {
+    background-color: var(--operator-bg);
+    color: var(--operator-text-color);
+}
+
+button.special {
+     background-color: var(--special-bg);
+     color: var(--operator-text-color);
+}
+
